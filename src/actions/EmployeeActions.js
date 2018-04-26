@@ -1,4 +1,5 @@
 import firebase from 'firebase';
+import { Actions } from 'react-native-router-flux';
 import { EMPLOYEE_UPDATE } from './types';
 
 /**
@@ -14,6 +15,7 @@ export const employeeUpdate = ({ prop, value }) => {
 
 /**
 * Get reference to firebase path.
+* We don't need to return an action because we're only intereted in pushing an object
 */
 export const employeeCreate = ({ name, phone, shift }) => {
   console.log(name, phone, shift);
@@ -21,13 +23,9 @@ export const employeeCreate = ({ name, phone, shift }) => {
 
 console.log(`firebase user is ${currentUser.uid}`);
 
+return () => {
   firebase.database().ref(`/users/${currentUser.uid}/employees`)
     .push({ name, phone, shift })
-    .then(() => {
-      console.log('Save to Firebase was successful');
-    })
-    .catch((error) => {
-      console.log('firebas error');
-    console.log(error);
-  });
+    .then(() => Actions.pop());
+  };
 };
