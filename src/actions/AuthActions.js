@@ -29,7 +29,6 @@ import {
 } from './types';
 
 export const emailChanged = (text) => {
-  console.log('Action creator emailChnaged called');
   return {
     type: EMAIL_CHANGED,
     payload: text
@@ -92,8 +91,6 @@ const loginUserFail = (dispatch) => {
 */
 
 const loginUserSuccess = (dispatch, user) => {
-  console.log('Login was sucessful');
-  console.log(user);
   dispatch({
     type: LOGIN_USER_SUCCESS,
     payload: user

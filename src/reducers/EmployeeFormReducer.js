@@ -1,4 +1,7 @@
-import { EMPLOYEE_UPDATE } from '../actions/types';
+import {
+  EMPLOYEE_UPDATE,
+  EMPLOYEE_CREATE
+ } from '../actions/types';
 
 const INITIAL_STATE = {
   name: '',
@@ -17,7 +20,14 @@ export default (state = INITIAL_STATE, action) => {
     return { ...state, [action.payload.prop]: action.payload.value };
     /**
     * Above is ES-6 feature called Key Interpolation
-    * The keys we're adding to the object will be determined at runtime  
+    * The keys we're adding to the object will be determined at runtime
+    */
+
+    case EMPLOYEE_CREATE:
+      return INITIAL_STATE;
+    /**
+    * Dispatch of this action means that the employee was sucessfully saved into firebase
+    * reset the form
     */
 
     default:

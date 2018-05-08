@@ -24,12 +24,12 @@ class App extends Component {
   componentWillMount() {
     // Initialize Firebase
   const config = {
-    apiKey: 'AIzaSyCh721kkDfLxxl6hjH-iRXa9MnGaS-HDtM',
-    authDomain: 'react-native-manager-53ed9.firebaseapp.com',
-    databaseURL: 'https://react-native-manager-53ed9.firebaseio.com',
-    projectId: 'react-native-manager-53ed9',
-    storageBucket: 'react-native-manager-53ed9.appspot.com',
-    messagingSenderId: '826473989393'
+    apiKey: 'AIzaSyCr6di0eqz6f8EvxO0CJiI9XOj03tbFkvQ',
+    authDomain: 'manager-8d17f.firebaseapp.com',
+    databaseURL: 'https://manager-8d17f.firebaseio.com',
+    projectId: 'manager-8d17f',
+    storageBucket: 'manager-8d17f.appspot.com',
+    messagingSenderId: '240987691987'
   };
 
   firebase.initializeApp(config);
