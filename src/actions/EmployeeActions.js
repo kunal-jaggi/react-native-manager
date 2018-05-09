@@ -77,7 +77,28 @@ export const employeeSave = ({ name, phone, shift, uid }) => {
       .set({ name, phone, shift })
       .then(() => {
         dispatch({ type: EMPLOYEE_SAVE_SUCCESS });
-        Actions.employeeList({ type: 'reset' });
+        //Actions.employeeList({ type: 'reset' });
+        Actions.pop();
+      });
+  };
+};
+
+
+/**
+* Delete a specific employee by his/her uid
+* Get a ref to the current reducer. Pass it to Firebase to purge.
+* When purge is successful, navigate the user to the employee list.
+* No need to dispatch an event because the lister will update.
+*/
+export const employeeDelete = ({ uid }) => {
+  const { currentUser } = firebase.auth();
+
+  return () => {
+    firebase.database().ref(`/users/${currentUser.uid}/employees/${uid}`)
+      .remove()
+      .then(() => {
+        //Actions.employeeList({ type: 'reset' });
+        Actions.pop();
       });
   };
 };
